@@ -1,0 +1,19 @@
+{
+  "name": "bench",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "commander": "^2.8.1",
+    "parse5": "^1.5.0",
+    "q": "^1.4.1",
+    "request": "^2.61.0",
+    "worker-farm": "^1.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
