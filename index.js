@@ -13,9 +13,13 @@ program
   .parse(process.argv);
 
 function benchmark (urlList) {
-  return Q.allSettled(urlList.map((url)=>
+  var promises = [];
+  for (var i = 0; i < (program.number || 1); i++) {
+    promises = promises.concat(urlList.map((url)=>
       benchmarkUrl(url, true)
     ))
+  };
+  return Q.allSettled(promises)
     .then((results)=>
       results
       .map((r)=> r.value)
@@ -24,7 +28,7 @@ function benchmark (urlList) {
 }
 
 function benchmarkUrl (url, fetchAssets) {
-  console.log('benchmarking', url);
+  // console.log('benchmarking', url);
   var start = Date.now();
   if (!fetchAssets) {
     return requestPromise(url).then(()=> ({
